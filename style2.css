@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: white;
+    background-color: #000;
+    overflow: hidden;
+  }
+  
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #ffb6c1 0%, #ff69b4 100%);
+    animation: pulse 4s infinite alternate;
+    z-index: -2;
+  }
+  
+  @keyframes pulse {
+    0% { background-color: #ff69b4; }
+    100% { background-color: #ffc0cb; }
+  }
+  
+  .proposal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #letter p {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in forwards;
+  }
+  
+  #letter p:nth-child(1) { animation-delay: 0.5s; }
+  #letter p:nth-child(2) { animation-delay: 2s; }
+  #letter p:nth-child(3) { animation-delay: 4s; }
+  #letter p:nth-child(4) { animation-delay: 6s; }
+  #letter p:nth-child(5) { animation-delay: 8s; }
+  
+  #proposal {
+    margin-top: 40px;
+  }
+  
+  #proposal h1, #proposal h2 {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+  }
+  
+  #proposal h1 { animation-delay: 10s; }
+  #proposal h2 { animation-delay: 12s; }
+  
+  #yesBtn {
+    margin-top: 30px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: white;
+    color: #ff1493;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 14s;
+    opacity: 0;
+  }
+  
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none; /* Let clicks pass through the canvas */
+  }
+  
+  .hidden {
+    visibility: hidden;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  #nextPageBtn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: white;
+    color: #ff1493;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+  }
+  

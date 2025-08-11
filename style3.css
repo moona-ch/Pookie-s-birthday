@@ -1,0 +1,114 @@
+/* === Base Styles === */
+
+header {
+    background-color: #ffb6c1;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1em;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ffb6c1;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-list li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background-color: #ff88cc;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .nav-list li a:hover {
+    background-color: #ff6bb5;
+    transform: scale(1.05);
+  }
+  
+  footer {
+    background-color: #ffb6c1;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 60px;
+    font-size: 1em;
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+  }
+  
+  /* === Responsive Design for Mobile Devices === */
+  
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+      padding: 10px 0;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+  
+    .nav-list li a {
+      font-size: 1em;
+      padding: 8px 20px;
+      width: auto;
+    }
+  
+    h1 {
+      font-size: 2.2em;
+      margin-top: 15vh;
+      padding: 0 15px;
+    }
+  
+    #greeting {
+      font-size: 1.2em;
+      padding: 0 20px;
+    }
+  
+    .stickman-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 10px;
+      gap: 10px;
+    }
+  
+    .tenor-wrapper {
+      max-width: 90px;
+    }
+  
+    footer {
+      font-size: 0.95em;
+      padding: 12px 8px;
+    }
+  
+    #ride-button {
+      font-size: 1em;
+      padding: 10px 18px;
+    }
+  }
+  

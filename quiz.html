@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Time Pookie! 🎀</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe0f0, #e0f7ff, #fef6d2);
+      background-size: 400% 400%;
+      animation: bgFlow 20s ease infinite;
+      text-align: center;
+    }
+  
+    @keyframes bgFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  
+    h1 {
+      font-size: 3em;
+      color: #ff69b4;
+      margin-top: 20px;
+      text-shadow: 2px 2px 10px #fff;
+    }
+  
+    .quiz-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+  
+    .question {
+      background: #fff0f8;
+      border: 2px dashed #ffb6c1;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 25px 0;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
+      transition: transform 0.2s;
+    }
+  
+    .question:hover {
+      transform: scale(1.02);
+    }
+  
+    .question p {
+      font-size: 1.5em;
+      color: #d63384;
+      margin-bottom: 15px;
+    }
+  
+    .options label {
+      display: block;
+      background-color: #fff;
+      border: 2px solid #ffccde;
+      border-radius: 12px;
+      padding: 10px 15px;
+      margin: 10px 0;
+      font-size: 1.1em;
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+  
+    .options label:hover {
+      background-color: #ffe0f0;
+      border-color: #ff85a2;
+    }
+  
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      accent-color: #ff69b4;
+    }
+  
+    button {
+      margin-top: 25px;
+      padding: 14px 30px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+      transition: background 0.3s ease, transform 0.2s;
+    }
+  
+    button:hover {
+      background-color: #ff3d9e;
+      transform: scale(1.05);
+    }
+  
+    #result {
+      font-size: 1.5em;
+      margin-top: 30px;
+      color: #d63384;
+    }
+  
+    #gift {
+      display: none;
+      margin-top: 20px;
+    }
+  
+    #gift img {
+      width: 200px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #ffb6c1;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+ 
+  </style>
+  
+</head>
+<body>
+  <header>
+    <!--
+    <nav class="navbar">
+      
+      <ul class="nav-list">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="memoryLane.html">📸 Memory Lane</a></li>
+        <li><a href="balloon.html">🖼️ Your Age?</a></li>
+        <li><a href="quiz.html">💌 Quiz</a></li>
+        <li><a href="proposal.html">Proposal</a></li>
+        <li><a href="starlit_wishes2.html">our Constellation</a></li>
+        <li><a href="draw.html">Draw</a></li>
+      </ul>   
+    </nav>-->
+  </header>
+  <h1>Final Quiz for My Sunshine 💕</h1>
+  <div class="question">Pakka it's a final thing<br>
+  and no music taake ap distract na hon... (so thoughtful of me)</div>
+  
+
+
+  <div class="quiz-container">
+    <form id="quiz-form">
+
+      <div class="question">
+        1. When did we meet for the first time?
+        <div class="options">
+          <label><input type="radio" name="q1" value="a" /> a. December 29, 2024</label>
+          <label><input type="radio" name="q1" value="b" /> b. December 27, 2024</label>
+          <label><input type="radio" name="q1" value="c" /> c. November 27, 2024</label>
+          <label><input type="radio" name="q1" value="d" /> d. November 29, 2023</label>
+        </div>
+      </div>
+
+      <div class="question">
+        2. When did my heart officially become yours?
+        <div class="options">
+          <label><input type="radio" name="q2" value="a" /> a. The day we met</label>
+          <label><input type="radio" name="q2" value="b" /> b. The day we got engaged</label>
+          <label><input type="radio" name="q2" value="c" /> c. The day you first called me beautiful</label>
+          <label><input type="radio" name="q2" value="d" /> d. The day we had our first deep talk</label>
+        </div>
+      </div>
+
+      <div class="question">
+        3. What’s my favorite thing about you?
+        <div class="options">
+          <label><input type="radio" name="q3" value="a" /> a. Your eyes</label>
+          <label><input type="radio" name="q3" value="b" /> b. Your Kindness</label>
+          <label><input type="radio" name="q3" value="c" /> c. Your voice</label>
+          <label><input type="radio" name="q3" value="d" /> d. Your smile</label>
+        </div>
+      </div>
+
+      <div class="question">
+        4. What nickname do I call you the most?
+        <div class="options">
+          <label><input type="radio" name="q4" value="a" /> a. Sunshine</label>
+          <label><input type="radio" name="q4" value="b" /> b. Haseen admi</label>
+          <label><input type="radio" name="q4" value="c" /> c. Pookie</label>
+          <label><input type="radio" name="q4" value="d" /> d. Mine</label>
+        </div>
+      </div>
+
+      <div class="question">
+        5. What's something I imagine doing with you in our future life together?
+        <div class="options">
+          <label><input type="radio" name="q5" value="a" /> a. Building a gaming setup</label>
+          <label><input type="radio" name="q5" value="b" /> b. Traveling to space</label>
+          <label><input type="radio" name="q5" value="c" /> c. Cooking midnight snacks together</label>
+          <label><input type="radio" name="q5" value="d" /> d. Owning a whole zoo</label>
+        </div>
+      </div>
+
+      <div class="question">
+        6. If I could describe our love in one word, what would it be?
+        <div class="options">
+          <label><input type="radio" name="q6" value="a" /> a. Magical</label>
+          <label><input type="radio" name="q6" value="b" /> b. Unbreakable</label>
+          <label><input type="radio" name="q6" value="c" /> c. Unexpected</label>
+          <label><input type="radio" name="q6" value="d" /> d. Cute</label>
+        </div>
+      </div>
+
+      
+
+      <button type="submit">Submit 💖</button>
+    </form>
+    <div id="result"></div>
+    <div id="gift">
+      <p>🎁 You did amazing, dude! Here's your little gift (a glimpse to our future togther): <br>This is how I see our future together 💖. </p>
+         <!--  <video width="320" height="240" controls autoplay loop>
+        <source src="what is love.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>  -->
+
+      <iframe width="320" height="240"
+  src="https://www.youtube.com/embed/xdHx1YEsWwk?autoplay=1&loop=1&playlist=xdHx1YEsWwk"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
+
+        <!-- New "Next" button -->
+  <br><br>
+  <button id="nextPageBtn" style="display: none;">One finalll thing! Click here</button>
+
+      
+    </div>
+  </div>
+  <!--Footer-->
+  <footer>
+    Made with infinite love 💕 by Moona — for my one and only 🌟
+  </footer>
+
+  <script>
+    const correctAnswers = {
+      q1: "c", 
+      q2: "d", 
+      q3: "b", 
+      q4: "c", 
+      q5: "c",
+      q6: "b"  
+    };
+  
+    const form = document.getElementById("quiz-form");
+    const result = document.getElementById("result");
+    const gift = document.getElementById("gift");
+    let attemptCount = 1;
+  
+    //linked email is maimuna.chaudhary29@gmail.com
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyzJ-efsRN5eSYlKp-cKwLUz7PnR0aoE7pYT-jJUkL298R1xZ7GvGvxL771Lhw0iGc/exec"; // Replace with your actual script URL
+  
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let score = 0;
+  
+      for (let q in correctAnswers) {
+        const selected = form[q].value;
+        if (selected === correctAnswers[q]) {
+          score++;
+        }
+      }
+  
+      result.innerText = `You got ${score} out of 6 right! 💫`;
+  
+      if (score >= 4) {
+        gift.style.display = "block";
+        result.innerText += " 🎉 You’ve unlocked your surprise!";
+        // Show the "Next" button
+  document.getElementById("nextPageBtn").style.display = "inline-block";
+      } else {
+        gift.style.display = "none";
+        result.innerText += " Try again for your surprise! 🥺";
+      }
+  
+      // Send data to Google Sheets
+      const data = {
+        name: "Anonymous", // or make this dynamic
+        score: score,
+        attempt: attemptCount++
+      };
+  
+      fetch("https://script.google.com/macros/s/AKfycbyzJ-efsRN5eSYlKp-cKwLUz7PnR0aoE7pYT-jJUkL298R1xZ7GvGvxL771Lhw0iGc/exec", {
+  method: "POST",
+  body: JSON.stringify(data) // DO NOT manually set headers
+})
+.then(res => res.json())
+.then(response => {
+  console.log("Submitted!", response);
+})
+.catch(err => console.error("Error submitting to Sheet:", err));
+
+    });
+
+    document.getElementById("nextPageBtn").addEventListener("click", () => {
+  window.location.href = "proposal.html"; // Replace with your actual file
+});
+
+  </script>
+  
+</body>
+</html>

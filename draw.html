@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Draw Your Heart Out</title>
+  <link rel="stylesheet" href="draw.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="memoryLane.html">📸 Memory Lane</a></li>
+        <li><a href="balloon.html">🖼️ Your Age?</a></li>
+        <li><a href="quiz.html">💌 Quiz</a></li>
+        <li><a href="proposal.html">Proposal</a></li>
+        <li><a href="starlit_wishes2.html">our Constellation</a></li>
+        <li><a href="draw.html">Draw</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <div class="controls">
+    <label>Brush Color: <input type="color" id="colorPicker" value="#ff69b4"></label>
+    <label>Brush Size: <input type="range" id="brushSize" min="1" max="20" value="5"></label>
+    <button id="clearBtn">Clear</button>
+    <button id="saveBtn">Save Drawing</button>
+  </div>
+
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+  <canvas id="drawingCanvas"></canvas>
+
+  <script src="draw.js"></script>
+</body>
+</html>

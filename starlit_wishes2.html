@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starlit Wishes</title>
+  <link rel="stylesheet" href="starlit2.css" />
+  <style>
+    #music-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 8px 12px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 10000;
+      user-select: none;
+      transition: transform 0.2s ease;
+    }
+    #music-toggle:hover {
+      transform: scale(1.1);
+    }
+    </style>
+    
+  
+</head>
+<body>
+  <!-- Background Music -->
+<audio id="bg-music" loop autoplay>
+  <source src="Media/om shanti om.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Music Toggle Icon -->
+<div id="music-toggle" title="Toggle Music">🎵</div>
+
+
+  <!-- Intro overlay -->
+  <div id="introOverlay">
+    <div class="introContent">
+      <h1>Hello there and welcome to the Starlit Wishes ✨</h1>
+      <p>
+        Each star in this sky holds a wish, a reason, or a feeling I have for you.  
+        Click the stars one by one to unlock them, and watch as something magical takes shape.
+      </p>
+      <button onclick="startExperience()">Start</button>
+    </div>
+  </div>
+  <!-- Stars image at the top 
+<img src="img/sky.jpeg" alt="Stars in the sky" class="sky-image" /> -->
+
+  <!-- Starry sky -->
+  <div class="sky">
+    <div class="star-container"><div class="star" data-message="You shine brighter than all the stars."></div><span class="star-label">4</span></div>
+    <div class="star-container"><div class="star" data-message="You're the center of my universe."></div><span class="star-label">6</span></div>
+    <div class="star-container"><div class="star" data-message="With you, even silence feels so calm."></div><span class="star-label">8</span></div>
+    <div class="star-container"><div class="star" data-message="You complete my constellations."></div><span class="star-label">9</span></div>
+    <div class="star-container"><div class="star" data-message="You're my guiding light."></div><span class="star-label">10</span></div>
+    <div class="star-container"><div class="star" data-message="Every moment with you is nothing but joy."></div><span class="star-label">1</span></div>
+    <div class="star-container"><div class="star" data-message="You're written in my stars. Or maybe You are my star."></div><span class="star-label">2</span></div>
+    <div class="star-container"><div class="star" data-message="Forever starts with you and ends with you."></div><span class="star-label">3</span></div>
+    <div class="star-container"><div class="star" data-message="Our love outshines galaxies."></div><span class="star-label">5</span></div>
+    <div class="star-container"><div class="star" data-message="You are my favorite dua."></div><span class="star-label">7</span></div>
+  </div>
+
+  <!-- Stickmen image at the bottom -->
+<img src="img/starlitCartoon.png" alt="Two stickmen looking up" class="bottom-image" />
+
+  <!-- Constellation lines -->
+  <canvas id="constellationCanvas"></canvas>
+
+  <!-- Star message box -->
+  <div id="messageBox" class="hidden">
+    <p id="starMessage"></p>
+    <button onclick="closeMessage()">✧ Close ✧</button>
+  </div>
+
+  <!-- Final message -->
+  <div id="finalMessage" class="hidden">
+    <p>💖 Together, we make the perfect heart-shaped constellation. <br> 
+      It's our Allah miyan who united us... and then the universe started doing its magic.
+      We are meant to be together... we were always meant to be together. 
+      Our names were written for each other billions of years ago when this universe didn't even exist.
+      You are my soulmate, the star I was looking for. You are my everything!💖</p>
+    <button onclick="closeFinalMessage()">💞 I know that pagli, Love You Too!</button>
+    <button onclick="goToNextPage()">🌠 Wanna see what's next? Pakka it's last...</button>
+  </div>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('music-toggle');
+  
+    let isPlaying = true;
+  
+    toggleBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        toggleBtn.textContent = '🔇';
+      } else {
+        music.play();
+        toggleBtn.textContent = '🎵';
+      }
+      isPlaying = !isPlaying;
+    });
+  
+    // Handle autoplay restrictions
+    document.addEventListener('click', () => {
+      if (music.paused && isPlaying) {
+        music.play().catch(() => {
+          console.warn("Autoplay blocked until user interacts.");
+        });
+      }
+    }, { once: true });
+  </script>
+  
+  <script src="starlit2.js"></script>
+</body>
+</html>

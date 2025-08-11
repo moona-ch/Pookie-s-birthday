@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hi Pookie! 🧁</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe0f0, #e0f7ff, #fef6d2);
+      background-size: 400% 400%;
+      animation: bgFlow 20s ease infinite;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgFlow {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 4em;
+      margin-top: 20vh;
+      color: #ff69b4;
+      text-shadow: 2px 2px 10px #fff;
+    }
+
+    #greeting {
+    font-size: 2em;
+    color: #ff88cc;
+    margin-top: 20px;
+    cursor: pointer;
+     transition: transform 0.3s ease;
+}
+
+#greeting:hover {
+  transform: scale(1.05);
+}
+
+ 
+    .stickman-container {
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tenor-wrapper {
+    max-width: 120px;
+    width: 100%;
+  }
+
+
+    .stickman-container img {
+      width: 100px;
+      height: auto;
+    }
+   
+    
+  </style>
+</head>
+<body>
+  <!-- Password Modal Styles -->
+<style>
+  #password-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffe0f0, #e0f7ff, #fef6d2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  #password-box {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    width: 90%;
+    max-width: 350px;
+  }
+
+  #password-box h2 {
+    margin-bottom: 20px;
+    color: #b33477;
+  }
+
+  #password-input {
+    padding: 10px;
+    border: 2px solid #b33477;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  #submit-password {
+    background-color: #b33477;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  #submit-password:hover {
+    background-color: #962d65;
+  }
+
+  #error-msg {
+    color: red;
+    margin-top: 10px;
+    display: none;
+  }
+
+  #music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 10000;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+#music-toggle:hover {
+  transform: scale(1.1);
+}
+
+</style>
+
+<!-- Background Music -->
+<audio id="bg-music" loop autoplay>
+  <source src="Media/tera hone laga hoon.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Music Toggle Icon -->
+<div id="music-toggle" title="Toggle Music">
+  🎵
+</div>
+
+
+<!-- Password Modal HTML -->
+<div id="password-modal">
+  <div id="password-box">
+    <h2>Access Love 💖</h2>
+    <input type="password" id="password-input" placeholder="Enter the magic word..." />
+    <br />
+    <button id="submit-password">Unlock ✨</button>
+    <p id="error-msg">Oops! Wrong password. Try again. 🥺</p>
+  </div>
+</div>
+
+<!-- JavaScript for Modal Logic -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const correctPassword = "pookie123";
+    const passwordInput = document.getElementById("password-input");
+    const submitBtn = document.getElementById("submit-password");
+    const modal = document.getElementById("password-modal");
+    const errorMsg = document.getElementById("error-msg");
+
+    submitBtn.addEventListener("click", () => {
+      if (passwordInput.value === correctPassword) {
+  modal.style.display = "none";
+  document.getElementById("content").style.display = "block";
+
+  // Show the ride button 5s after password success
+  setTimeout(() => {
+    document.getElementById("ride-invite").style.display = "block";
+  }, 5000);
+}
+else {
+        errorMsg.style.display = "block";
+        passwordInput.value = "";
+        passwordInput.focus();
+      }
+    });
+
+    // Allow pressing Enter to submit
+    passwordInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        submitBtn.click();
+      }
+    });
+  });
+</script>
+
+  
+  
+  
+  <div id="content" style="display: none;">
+    <!--
+  <header>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="memoryLane.html">📸 Memory Lane</a></li>
+        <li><a href="balloon.html">🖼️ Your Age?</a></li>
+        <li><a href="quiz.html">💌 Quiz</a></li>
+        <li><a href="proposal.html">Proposal</a></li>
+        <li><a href="starlit_wishes2.html">our Constellation</a></li>
+        <li><a href="draw.html">Draw</a></li>
+      </ul>
+    </nav>
+  </header>         -->
+  <h1>Happy Birthday<br> My Dearest Pookie! 🧸💖</h1>
+  <p id="greeting">...</p>
+
+  <div id="ride-invite" style="display: none; margin-top: 30px;">
+    <p style="font-size: 1.5em; color: #ff6fa8;">Wanna go on a ride? 🎢</p>
+    <button id="ride-button" style="
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    ">
+      Let's go! 🚀
+    </button>
+  </div>
+  
+  <div id="heart-note-floating" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 182, 193, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+">
+  Don't forget to pop the hearts 💖
+</div>
+
+  <!--Footer
+  <footer>
+    Made with infinite love 💕 by Moona — for my one and only 🌟
+  </footer>     -->
+
+</div>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const toggleBtn = document.getElementById('music-toggle');
+
+  let isPlaying = true;
+
+  toggleBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      music.pause();
+      toggleBtn.textContent = '🔇';
+    } else {
+      music.play();
+      toggleBtn.textContent = '🎵';
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // In case autoplay is blocked by the browser
+  document.addEventListener('click', () => {
+    if (music.paused && isPlaying) {
+      music.play().catch(() => {
+        console.warn("Autoplay blocked until user interacts.");
+      });
+    }
+  }, { once: true });
+</script>
+
+  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  <script>
+    const greetings = [
+      "Love you my sunshine! ☀️ Stay magical ✨",
+      "You're as sweet as Rasgulla (or maybe more)",
+      "Sending you a warm hug! 🤗 (virtual hugs)",
+      "You're the pookiest of all 💕",
+      "You are the cutest and sweetest thing that has ever happened to me ✨",
+      
+    ];
+  
+    const greetingEl = document.getElementById("greeting");
+  
+    function setRandomGreeting() {
+      const index = Math.floor(Math.random() * greetings.length);
+      greetingEl.innerText = greetings[index];
+    }
+  
+    setRandomGreeting();
+    setInterval(setRandomGreeting, 5000);
+    greetingEl.addEventListener("click", setRandomGreeting);
+  
+    // Add sparkle animation CSS
+    const sparkleStyle = document.createElement("style");
+    sparkleStyle.textContent = `
+      @keyframes sparklePop {
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.5); opacity: 1; }
+        100% { transform: scale(0); opacity: 0; }
+      }
+      .sparkle {
+        position: fixed;
+        font-size: 20px;
+        pointer-events: none;
+        animation: sparklePop 0.6s ease-out forwards;
+        user-select: none;
+        z-index: 9999;
+      }
+    `;
+    document.head.appendChild(sparkleStyle);
+  
+    // Create floating clickable hearts
+    function floatHearts() {
+      const heart = document.createElement("div");
+      heart.classList.add("hearts");
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      heart.style.width = "50px";
+      heart.style.height = "50px";
+      heart.style.background = "url('img/heart.png') no-repeat center/contain";
+      heart.style.cursor = "pointer";
+      heart.style.zIndex = "1000";
+      heart.style.pointerEvents = "auto";
+  
+      // Animate upwards
+      heart.animate(
+        [
+          { transform: "translateY(0)", opacity: 1 },
+          { transform: `translateY(-${window.innerHeight + 50}px)`, opacity: 0 }
+        ],
+        {
+          duration: 6000,
+          easing: "linear",
+          fill: "forwards"
+        }
+      );
+  
+      // On click: sparkle effect + remove heart
+      heart.addEventListener("click", (e) => {
+        // Create sparkle element at click position
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.style.left = e.clientX - 30 + "px";
+        sparkle.style.top = e.clientY - 30 + "px";
+        sparkle.innerText = "✨";
+        document.body.appendChild(sparkle);
+  
+        // Remove sparkle after animation
+        setTimeout(() => sparkle.remove(), 600);
+  
+        // Remove the heart
+        heart.remove();
+      });
+  
+      document.body.appendChild(heart);
+  
+      // Remove heart automatically after 6s if not clicked
+      setTimeout(() => {
+        if (document.body.contains(heart)) heart.remove();
+      }, 6000);
+    }
+  
+    setInterval(floatHearts, 300);
+
+    // Show the ride message and button after 5 seconds
+/*  setTimeout(() => {
+  document.getElementById("ride-invite").style.display = "block";
+}, 10000);    */
+
+
+document.getElementById("ride-button").addEventListener("click", () => {
+  // Example: redirect or animate something
+  window.location.href = "memoryLane.html";
+  
+});
+
+  </script>
+  
+  
+</body>
+</html>

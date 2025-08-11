@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎈 Balloon Pop Surprise 🎉</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    
+  
+    
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffdde1, #ffc1f3);
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(135deg, #ffe0f0, #e0f7ff);
+      animation: bgFlow 20s ease infinite;
+      /* color: #b33477; */
+      text-align: center;
+      user-select: none;
+      height: 100vh;
+      position: relative;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2.8rem;
+    }
+
+    #question {
+      font-size: 1.8rem;
+      margin: 15px 0 35px;
+    }
+
+    #options-container {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      margin-bottom: 25px;
+      pointer-events: none;
+    }
+
+    .option-bubble {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: #ff85a2; /* flat pink color */
+  border: 1px solid black;   /* bold black outline */
+  border-radius: 50%;        /* perfect circle */
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 80px;
+  text-align: center;
+  user-select: none;
+  pointer-events: auto; /* enable pointer events */
+  transition: transform 0.3s ease; /* smooth scale on hover */
+  opacity: 0;
+  animation: bubbleIn 0.8s forwards;
+  text-shadow: none;
+  box-shadow: none;
+  transform: scale(1);
+}
+
+
+.option-bubble:hover {
+  transform: scale(1.1);
+}
+
+    @keyframes bubbleIn {
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    #start-prompt {
+      font-size: 1.6rem;
+      margin-top: 15px;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+
+    #balloon-container {
+      position: fixed;
+      bottom: -150px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 10;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #ff6699, #cc3366);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow: inset -5px -10px 15px rgba(255,255,255,0.7);
+      animation: floatUp linear forwards;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      text-shadow: 0 0 2px rgba(0,0,0,0.7);
+    }
+
+    .balloon-img {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  bottom: -150px;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: floatUp linear forwards;
+  user-select: none;
+  z-index: 10;
+}
+
+    /* Balloon string */
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      width: 2px;
+      height: 30px;
+      background: #b33477;
+      transform: translateX(-50%);
+      border-radius: 1px;
+      filter: drop-shadow(0 1px 0 #800040);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    #counter {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-weight: bold;
+      text-shadow: 0 0 3px #fff;
+      min-height: 28px;
+    }
+
+    /* Popup overlay */
+    #popup {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(179, 52, 119, 0.9);
+      color: white;
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1.6rem;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #popup.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #popup h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    #popup p {
+      max-width: 600px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    #popup button {
+      font-family: 'Pacifico', cursive;
+      background-color: #fff;
+      border: none;
+      color: #b33477;
+      font-size: 1.3rem;
+      padding: 10px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease;
+    }
+
+    #popup button:hover {
+      background-color: #ffd6eb;
+    }
+  </style>
+</head>
+<body>
+<!--
+  <header>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="memoryLane.html">📸 Memory Lane</a></li>
+        <li><a href="balloon.html">🖼️ Your Age?</a></li>
+        <li><a href="quiz.html">💌 Quiz</a></li>
+        <li><a href="proposal.html">Proposal</a></li>
+        <li><a href="starlit_wishes2.html">our Constellation</a></li>
+        <li><a href="draw.html">Draw</a></li>
+      </ul>
+    </nav>
+  </header>   -->
+
+  <h1>Welcome Mr Usama!</h1>
+  <div id="question">So, What age are you turning?</div>
+  
+
+  <div class="audio-player" style="
+  position: relative;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 10px 10px;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Pacifico', cursive;
+  font-size: 1.1rem;
+  color: #7da6ff;
+">
+  <p style="margin: 4px 0 6px;">🎶 Play it first to vibe along:</p>
+  <audio controls  style="height: 24px;">
+    <source src="Media/zalima.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<!--new-->
+<div id="ready-message" style="font-size:1.4rem; margin-top:10px; opacity:0; transition:opacity 0.5s ease;">
+</div>
+
+  <div id="options-container"></div>
+
+  <div id="start-prompt"></div>
+
+  <div id="counter"></div>
+  <div id="balloon-container"></div>
+
+  <!-- Congratulation popup -->
+  <div id="popup">
+    <h2>🎉 Happy Birthday, My Love! 🎉</h2>
+    <p>
+      Wishing you a day filled with laughter, joy, and endless love. May this new chapter of your life be brighter and better than ever before! You are my sunshine, my rock, and my forever. Here's to many more beautiful memories together. Happy Birthday, my man! 💖
+    </p>
+    <button id="close-popup">Close</button>
+    <button id="next-page" style="margin-top: 15px; background:white; color: b33477;; border:none; padding:10px 25px; border-radius:30px; cursor:pointer; font-family: 'Pacifico', cursive;">
+      let's move to more adventure?
+    </button>
+  </div>
+
+
+
+  <audio id="pop-sound" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+
+ <!-- <footer>
+    Made with infinite love 💕 by Moona — for my one and only 🌟
+  </footer>   -->
+
+  <script>
+    const options = ["26?", "28?", "30?", "40?", "50?", "80?"];
+    const optionsContainer = document.getElementById('options-container');
+    const startPrompt = document.getElementById('start-prompt');
+    const counterDisplay = document.getElementById('counter');
+    const balloonContainer = document.getElementById('balloon-container');
+    const popup = document.getElementById('popup');
+    const closePopupBtn = document.getElementById('close-popup');
+    const popSound = document.getElementById('pop-sound');
+
+    let balloonsPopped = 0;
+    const targetBalloons = 28; // fixed surprise trigger
+    let balloonsInAir = [];
+    let balloonInterval;
+
+    // Show options as bubbles, one after another at random positions
+    function showOptions() {
+      options.forEach((opt, i) => {
+        setTimeout(() => {
+          const bubble = document.createElement('div');
+          bubble.classList.add('option-bubble');
+          bubble.textContent = opt;
+
+          // Random left position in container (allow bubble fully visible)
+          const maxLeft = optionsContainer.clientWidth - 70;
+          bubble.style.left = (Math.random() * maxLeft) + 'px';
+
+          // Random top position inside options container height
+          const maxTop = optionsContainer.clientHeight - 70;
+          bubble.style.top = (Math.random() * maxTop) + 'px';
+
+          optionsContainer.appendChild(bubble);
+
+          // After last option, show the start popping prompt and start balloons
+          if (i === options.length - 1) {
+            setTimeout(() => {
+              startPrompt.textContent = "Let's discover your age by popping the balloons!🎉";
+              startPrompt.style.opacity = '1';
+              startGame();
+            }, 800);
+          }
+        }, i * 900); // delay between bubbles
+      });
+    }
+
+    // Generate a random number between min and max inclusive
+    function randomRange(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    
+
+    function createBalloon() {
+  const balloon = document.createElement('img');
+  balloon.classList.add('balloon-img');
+
+  // ✅ Random image from list
+  const images = ['img/b1.png', 'img/b2.png', 'img/b3.png','img/b4.png']; // Make sure these image files exist in the same folder or adjust path
+  balloon.src = images[Math.floor(Math.random() * images.length)];
+
+  // 🎯 Random horizontal position
+  const leftPos = Math.random() * (window.innerWidth - 60);
+  balloon.style.left = leftPos + 'px';
+
+  // 🎈 Random float speed
+  const floatDuration = randomRange(8000, 13000);
+  balloon.style.animationDuration = floatDuration + 'ms';
+
+  // 👇 Start at bottom
+  balloon.style.bottom = '-150px';
+
+  // 🎯 Add to screen & list
+  balloonContainer.appendChild(balloon);
+  balloonsInAir.push(balloon);
+
+  // 🧨 Remove after animation ends
+  balloon.addEventListener('animationend', () => {
+    balloon.remove();
+    balloonsInAir = balloonsInAir.filter(b => b !== balloon);
+    if (balloonsPopped < targetBalloons) spawnBalloon();
+  });
+
+  // 💥 On click, pop
+  balloon.addEventListener('click', () => {
+    if (balloonsPopped >= targetBalloons) return;
+    popBalloon(balloon);
+  });
+}
+
+function popBalloon(balloon) {
+  popSound.currentTime = 0;
+  popSound.play();
+  balloonsPopped++;
+  counterDisplay.textContent = `Balloons popped: ${balloonsPopped}`;
+
+  // Disable clicking again
+  balloon.style.pointerEvents = 'none';
+
+  // Shrink and fade animation
+  balloon.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+  balloon.style.transform = 'scale(0) rotate(-45deg)';
+  balloon.style.opacity = '0';
+
+  setTimeout(() => {
+    balloon.remove();
+    balloonsInAir = balloonsInAir.filter(b => b !== balloon);
+    if (balloonsPopped < targetBalloons) {
+      spawnBalloon();
+    } else if (balloonsPopped === targetBalloons) {
+      showPopup();
+    }
+  }, 300);
+}
+
+    // Show the congratulation popup
+    function showPopup() {
+      popup.classList.add('show');
+      // Stop spawning balloons
+      clearInterval(balloonInterval);
+      // Remove remaining balloons
+      balloonsInAir.forEach(b => b.remove());
+      balloonsInAir = [];
+    }
+
+    // Spawn a balloon periodically
+    function spawnBalloon() {
+      if (balloonsPopped >= targetBalloons) return;
+      createBalloon();
+    }
+
+    // Start balloon popping game
+    function startGame() {
+      balloonsPopped = 0;
+      counterDisplay.textContent = `Balloons popped: 0`;
+      balloonContainer.innerHTML = '';
+      balloonsInAir = [];
+
+      // Spawn balloons initially - max 5 balloons at a time
+      for(let i=0; i<5; i++) {
+        spawnBalloon();
+      }
+
+      // Spawn new balloons every 1.2 seconds while game runs
+      balloonInterval = setInterval(() => {
+        if (balloonsPopped < targetBalloons && balloonsInAir.length < 5) {
+          spawnBalloon();
+        }
+      }, 1200);
+    }
+
+    closePopupBtn.addEventListener('click', () => {
+      popup.classList.remove('show');
+      // Reset everything to start again
+      balloonsPopped = 0;
+      counterDisplay.textContent = '';
+      balloonContainer.innerHTML = '';
+      balloonsInAir = [];
+      clearInterval(balloonInterval);
+
+      startPrompt.style.opacity = '0';
+      optionsContainer.innerHTML = '';
+      showOptions();
+    });
+
+    // Initial call to show options bubbles on page load
+   // showOptions();
+
+   // Show "Get Ready..." message, then start options after 10s
+const readyMsg = document.getElementById('ready-message');
+readyMsg.textContent = "🎉 Get ready... 1... 2... 3...";
+readyMsg.style.opacity = "1";
+
+setTimeout(() => {
+  readyMsg.style.opacity = "0"; // fade out before circles appear
+  setTimeout(() => {
+    showOptions();
+  }, 500); // wait for fade-out before starting circles
+}, 10000);
+
+
+
+const nextPageBtn = document.getElementById('next-page');
+
+nextPageBtn.addEventListener('click', () => {
+  // Redirect to your next page URL, e.g., "nextpage.html"
+  window.location.href = "starlit_wishes2.html";
+});
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Keep Choosing Me?</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="romantic-music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <div class="background"></div>
+
+  <div class="proposal-container">
+    <div id="letter" class="hidden">
+      <p>My love,</p>
+      <p>Every moment with you has been a beautiful story worth telling.</p>
+      <p>You've made my life brighter, softer, and so full of joy.</p>
+      <p>I look back and all I see is love...</p>
+      <p>...and I look forward to forever with you.</p>
+    </div>
+
+   <!-- <div id="proposal" class="hidden">
+      <h1>I’d choose you a thousand times over.</h1>
+      <h2>Will you keep choosing me too?</h2>
+      <button id="yesBtn">YES, ALWAYS ❤️</button>
+      <button id="nextPageBtn" class="yesBtn">Wanna revisit one of the previous pages? 💌</button>
+    </div> -->
+
+    <div id="proposal" class="hidden">
+      <h1>I’d choose you a thousand times over.</h1>
+      <h2>Will you keep choosing me too?</h2>
+      <button id="yesBtn">YES, ALWAYS ❤️</button>
+      <br><br>
+      <button id="nextPageBtn" style="display: none;">Wanna revisit one of the previous pages? 💌</button>
+    </div>
+
+    <canvas id="confetti-canvas" class="hidden"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

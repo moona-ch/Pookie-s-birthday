@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Lane 🛤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe0f0, #e0f7ff);
+      animation: bgFlow 20s ease infinite;
+      background-size: 400% 400%;
+      color: #333;
+    }
+
+    @keyframes bgFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 3em;
+      color: #ff69b4;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+   /* .memory {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin: 20px;
+      width: 90%;
+      max-width: 600px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .memory:hover {
+      transform: scale(1.03);
+    }
+
+    .memory img {
+      width: 100%; 
+      display: block;
+    }
+ 
+    .caption {
+      padding: 15px;
+      font-size: 1.2em;
+      color: #555;
+      text-align: center;
+    }   */
+    .memory {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  text-align: center;       /* Centers text and inline-block elements */
+  padding: 20px;            /* Optional: add spacing inside the box */
+}
+
+.memory:hover {
+  transform: scale(1.03);
+}
+
+.memory img {
+  width: 300px;
+  height: 300px; 
+  object-fit:cover;        /* Keeps the image neatly cropped */
+  display: block;
+  margin: 0 auto 15px;      /* Centers image and adds spacing below */
+  border-radius: 15px;      /* Optional: makes image edges rounded */
+}
+
+.caption {
+  font-size: 1.2em;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Fade-in animation */
+.fade-in {
+  
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bouncing heart animation */
+.heart {
+  display: inline-block;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.3); }
+}
+
+/* Responsive image sizing */
+@media (max-width: 480px) {
+  .memory img {
+    width: 90% !important;
+    height: auto !important;
+  }
+
+  .caption {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .next-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+}
+
+
+
+    .audio-player {
+      text-align: center;
+      margin: 30px auto;
+    }
+
+    .button-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+    .next-button {
+  display: inline-block;
+  margin: 30px auto;
+  padding: 10px 20px; /* smaller padding */
+  font-size: 1em;      /* smaller text */
+  background-color: #ff88cc;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s;
+  position: relative;
+  text-align: center;
+  align-content: center;
+}
+
+.next-button:hover {
+  background-color: #ff6bb5;
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+
+<!--  <header>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="memoryLane.html">📸 Memory Lane</a></li>
+        <li><a href="balloon.html">🖼️ Your Age?</a></li>
+        <li><a href="quiz.html">💌 Quiz</a></li>
+        <li><a href="proposal.html">Proposal</a></li>
+        <li><a href="starlit_wishes2.html">our Constellation</a></li>
+        <li><a href="draw.html">Draw</a></li>
+      </ul>
+    </nav>
+  </header>   -->
+  
+  <h1>Our Story So Far... 💖</h1>
+
+  <div class="audio-player">
+    <p>🎶 (Play it first to vibe along):</p>
+    <audio controls>
+      <source src="Media/tum mile.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="timeline">
+    <div class="memory">
+      <img src="images/2.png" alt="Happy Birthday Mr." >
+      <div class="caption">
+        First of all, Happy Birthday goes to our Birthday Boy who grew older and will keep getting older inshaAllah (with me)
+        <span class="heart">💖</span>
+      </div>
+    </div>
+    
+
+    <div class="memory">
+      <img src="images/1.png" alt="Standing on street">
+      <div class="caption">Some people light up a room and see, this dude is lighting up the entire street. ✨</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/3.png" alt="Rishta picture">
+      <div class="caption">Every picture tells a story and this picture? <br> This is where our story begun! 🥹</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/4.png" alt="Pink Interview">
+      <div class="caption">The man, who doesn't just look good, who makes life feel good.</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/5.png" alt="Animal Lover">
+      <div class="caption">Animal Lover? You have always been a cutie pie with a soft heart🥰... don't ever let it get harden.</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/6.png" alt="Jutt Saab">
+      <div class="caption">Woah woah wait, look at this jutt saabbbbb... swag tey maarna anda hai...😎</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/7.png" alt="Stylish wall">
+      <div class="caption">Poses han? Effortlessly cool. As always. 🌟</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/8.png" alt="Note">
+      <div class="caption">Remembering memories.. we can't miss this cutest note right? <br> 
+      It always brightens my day till date :)</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/9.png" alt="H&M">
+      <div class="caption">hehe... *blush blush 🤭<br> No caption needed 🙂‍↔️</div>
+    </div>
+
+    <div class="memory">
+      <video src="images/donut video.MP4" autoplay muted loop plays inline style="width: 300px; height: 300px; border-radius: 15px; display: block; margin: 0 auto 15px; object-fit: cover;"></video>
+      <div class="caption">
+        My sweet caretaker... 🤭
+      </div>
+    </div>
+    
+    <div class="memory">
+      <video src="images/hand video.mov" autoplay muted loop plays inline style="width: 300px; height: 300px; border-radius: 15px; display: block; margin: 0 auto 15px; object-fit: cover;"></video>
+      <div class="caption">
+        Even in the dark, your hand finds mine 💫❤️
+      </div>
+    </div>
+
+    <div class="memory">
+      <img src="images/12.jpg" alt="Sun and Moon">
+      <div class="caption">He is the Sun that lights my days; I am the Moon that quietly reflects his warmth.<br>
+        Though we never touch, our love pulls like tides, forever orbiting as one.<br>
+      Thora senti hona to banta tha... 😅</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/11.png" alt="Mehndi">
+      <div class="caption">Aik aisa naam jo mere hathon pe kya lakiron pe likh chuka gya hai💖</div>
+    </div>
+
+    <div class="memory">
+      <img src="images/10.jpg" alt="You are important">
+      <div class="caption">and lastly, don't ever forget!</div>
+    </div>
+
+  </div>
+
+  <div class="button-container">
+    <a href="balloon.html" class="next-button">💌 Next Surprise →</a>
+  </div>
+  
+
+  <footer>
+    Made with infinite love 💕 by Moona — for my one and only 🌟
+  </footer>
+
+  <script>
+    window.onload = () => {
+      document.querySelector('.memory').scrollIntoView({ behavior: 'smooth' });
+    };
+  </script>
+
+</body>
+</html>
